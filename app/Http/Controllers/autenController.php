@@ -23,7 +23,7 @@ class autenController extends Controller
         if(Auth::attempt($login)){
             return redirect("/home");
         }else{
-            return redirect("/login");
+            return redirect("/login")->with("error","username atau password salah");
         }
     }
 
@@ -51,5 +51,6 @@ class autenController extends Controller
             'password' => Hash::make($request->password),
             'telp' => $request->telp
         ]);
+        return redirect("/home");
     }
 }

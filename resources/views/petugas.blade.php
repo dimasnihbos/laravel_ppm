@@ -11,7 +11,7 @@
 
 <table class="center" border="1">
   <tr>
-    <th>Id Petugas</th>
+    <th>Id</th>
     <th>Nama</th>
     <th>Username</th>
     <th>Password</th>
@@ -22,7 +22,7 @@
 
 @foreach($petugas as $petugas)
 <tr>
-  <td>{{$petugas->id_petugas}}</td>
+  <td>{{$petugas->id}}</td>
   <td>{{$petugas->nama_petugas}}</td>
   <td>{{$petugas->username}}</td>
   <td>{{$petugas->password}}</td>

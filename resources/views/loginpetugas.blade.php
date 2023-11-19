@@ -11,11 +11,11 @@
 @include('layout.navbar') 
      <br>
      <br>
-     <h3 style="text-align:center;">{{$login}}</h3>
+     <h3 style="text-align:center;">{{$loginpetugas}}</h3>
      @if(session("error"))
       <div class="alert alert-danger">{{session("error")}}</div>
      @endif
-        <form action="{{ url('login')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('loginpetugas')}}" method="POST" enctype="multipart/form-data">
             <div class="container">
                 @method("POST")
                 @csrf 

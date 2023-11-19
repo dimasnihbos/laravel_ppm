@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pengaduan;
 use App\Models\Masyarakat;
 
@@ -33,6 +34,9 @@ class dimasController extends Controller
 
 
     function isi_pengaduan(request $request){
+
+        Auth::user();
+
         $nama_foto = $request->foto->getClientOriginalName();
         
         $request->validate([
@@ -45,7 +49,7 @@ class dimasController extends Controller
         
         DB::table('pengaduan')->insert([
             'tgl_pengaduan' => date('Y-m-d'),
-            'nik' => '01',
+            'nik' => Auth::user()->nik,
             'isi_laporan' => $isi,
             'foto' => $request->foto->getClientOriginalName(),
             'status' => '0'

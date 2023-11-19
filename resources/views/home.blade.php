@@ -10,6 +10,7 @@
 <body>
  
 <h1>{{ $TextJudul }}</h1>
+<h2>{{auth()->user()->username}}</h2>
 
 <table class="center" border="1">
   <tr>
