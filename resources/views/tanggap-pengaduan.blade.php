@@ -1,4 +1,4 @@
-@include('layout.navbar')
+@include('layout.navbarpetugas')
 
 @section('content')
 
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <form action="{{route('update', ['id'  => $data['id_pengaduan']])}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('tanggap', ['id'  => $data['status']])}}" method="POST" enctype="multipart/form-data">
         @method("put")
         @csrf
         
@@ -27,11 +27,18 @@
     <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label"> Isi Laporan</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" name="isi_laporan" rows="3" required>{{$data['isi_laporan']}}</textarea>
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Pilih Tanggapan</option>
+        <option value="1">0</option>
+        <option value="2">proses</option>
+        <option value="3">selesai</option>
+      </select>
+
     @error('isi_laporan')
         <div>{{$message}}</div>
     @enderror
     </div>
-    <input class="btn btn-primary" type="submit" value="Kirim"> 
+    <input class="btn btn-primary" type="submit" value="Tanggapi"> 
     </form>
 </div>
 </body>

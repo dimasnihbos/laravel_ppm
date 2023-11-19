@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-@include('layout.navbar') 
+@include('layout.navbarpetugas') 
      <br>
      <br>
      <h3 style="text-align:center;">{{$loginpetugas}}</h3>

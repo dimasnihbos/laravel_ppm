@@ -1,4 +1,4 @@
-@include('layout.navbar')
+@include('layout.navbarpetugas')
 
 @section('content')
 <head>
@@ -18,22 +18,24 @@
     <th>Nik</th>
     <th>isi_laporan</th>
     <th>Foto</th>
-    <th>status</th>
   </tr>
-
+@foreach ($tanggapan as $pengaduan)
+    
 <tr>
   <td>{{$pengaduan->id_pengaduan}}</td>
   <td>{{$pengaduan->tgl_pengaduan}}</td>
   <td>{{$pengaduan->nik}}</td>
   <td>{{$pengaduan->isi_laporan}}</td>
   <td><img src='{{asset("storage/image/".$pengaduan->foto)}}' width="120px"></td>
-  <td>{{$pengaduan->status}}</td>
+
 </tr>
-<td>
-  <a href="">PRINT</a>
-</td>
+
+@endforeach
+
 
 </table>
 </body>
 
+
+<h1>Tanggapan</h1>
 

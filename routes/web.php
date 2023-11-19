@@ -24,24 +24,32 @@ use PharIo\Manifest\AuthorElementCollection;
 
 Route::get('/home', [dimasController::class, 'index']);
 
-Route::get('isi', function(){
-  return view('isi');
-});
 
 Route::get('login', [autenController::class, 'create'])->name('login');
 Route::post('login', [autenController::class, 'login']);
 
 Route::get('petugas', [petugasController::class, 'petugas']);
 
-Route::get('regispetugas', [petugasController::class, 'regispetugas']);
+//Route::post('regispetugas', [petugasController::class, 'proses']);
+
+Route::get('/regispetugas', [petugasController::class, 'regispetugas']);
+
+Route::get('/regispetugas', [petugasController::class, 'prosesregis']);
 
 Route::get('/loginpetugas', [petugasController::class, 'logpetugas']);
 
 Route::post('loginpetugas', [petugasController::class, 'proses']);
 
+Route::get('/logout', [autenController::class, 'logout']);
 
-Route::get('logout', [autenController::class, 'logout']);
+Route::get('regis', [autenController::class, 'register']);
+
+Route::post('regis', [autenController::class, 'store']);
+
 Route::middleware(['auth'])->group(function () {
+  Route::get('isi', function(){
+  return view('isi');
+});
   Route::get('/home', [dimasController::class, 'index']);
   Route::post('/isi', [dimasController::class, 'isi_pengaduan']);
   Route::get('/detail-pengaduan/{id}', [dimasController::class, 'detail_']);
@@ -49,19 +57,21 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/update-pengaduan/{id}', [dimasController::class, 'edit']);
   Route::get('/hapus-pengaduan/{id}', [dimasController::class, 'delete']);
   Route::get('/hapus/{id}', [dimasController::class, 'hapus']);
-
-  Route::get('loginmasyarakat', [masyarakatController::class, 'Login']);
-
-  Route::get('regis', [autenController::class, 'register']);
-  Route::post('regis', [autenController::class, 'store']);
+  Route::get('loginmasyarakat', [masyarakatController::class, 'Login']);  
   Route::get('masyarakat', [masyarakatController::class, 'rakyat']);
 });
 
 Route::middleware(['cekPetugas'])->group(function () {
   Route::get('/homepetugas', [petugasController::class, 'hom']);
+  Route::get('/laporan', [petugasController::class, 'laporan']);
 });
 
-Route::get('/logout', [petugasController::class, 'logoutpetugas']);
+Route::get('/tanggap-pengaduan/{id}', [petugasController::class, 'tanggap']);
+Route::put('/tanggap-pengaduans/{id}', [petugasController::class, 'tanggap'])->name('tanggap');
+
+Route::get('/detail-petugas/{id}', [petugasController::class, 'detail_pengaduan']);
+
+Route::get('/petugas/logout', [petugasController::class, 'logoutpetugas']);
 
 //Route::get('/isi', function () {
   //  return view('isi');

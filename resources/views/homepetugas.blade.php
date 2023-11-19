@@ -1,4 +1,6 @@
+@include('layout.navbarpetugas')
 
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>HALAMAN PETUGAS</h1>
-    <h2>KAMING SUUNNNN</h2>
+    <h1>CAMAT DATANGGG</h1>
 </body>
 </html>

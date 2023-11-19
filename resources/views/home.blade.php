@@ -29,10 +29,9 @@
   <td>{{$pengaduan->tgl_pengaduan}}</td>
   <td>{{$pengaduan->nik}}</td>
   <td>{{$pengaduan->isi_laporan}}</td>
-  <td>{{$pengaduan->foto}}</td>
+  <td><img src='{{asset("storage/image/".$pengaduan->foto)}}' width="300px"></td>
   <td>{{$pengaduan->status}}</td>
 </tr>
-<td><img src='{{asset("storage/image/".$pengaduan->foto)}}' width="120px"></td>
 <td>
   <a href="hapus-pengaduan/{{$pengaduan->id_pengaduan}}">Hapus</a>
   <a href="detail-pengaduan/{{$pengaduan->id_pengaduan}}">Detail</a>
