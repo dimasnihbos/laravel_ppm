@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/detail-pengaduan/{id}', [dimasController::class, 'detail_']);
   Route::put('/update/{id}', [dimasController::class, 'update'])->name('update');
   Route::get('/update-pengaduan/{id}', [dimasController::class, 'edit']);
-  Route::get('/hapus-pengaduan/{id}', [dimasController::class, 'delete']);
+  Route::get('/hapus-pengaduan/{id}', [dimasController::class, 'delete']);  
   Route::get('/hapus/{id}', [dimasController::class, 'hapus']);
   Route::get('loginmasyarakat', [masyarakatController::class, 'Login']);  
   Route::get('masyarakat', [masyarakatController::class, 'rakyat']);
